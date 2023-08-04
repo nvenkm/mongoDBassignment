@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>ToDo</title>
+  </head>
+  <body>
+    <div class="todo-container">
+      <div class="todo-left">
+        <ul class="todo-list">
+          <!-- sample todo -->
+          <!-- <li class="todo">
+            <span class="todo-text">Sample ToDo</span>
+            <div class="buttons-container">
+              <img src="./logo2.png" alt="" />
+              <button class="button delete-button">Delete</button>
+              <button class="button complete-button">Complete</button>
+            </div>
+          </li> -->
+        </ul>
+      </div>
+      <div class="todo-right">
+        <h1>Enter Task</h1>
+        <form id="task-input-form">
+          <input
+            type="text"
+            name="taskText"
+            id="task-input"
+            placeholder="Enter new task"
+            required
+          />
+          <input type="file" required name="image" id="image-input" />
+          <button id="submit-button" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
