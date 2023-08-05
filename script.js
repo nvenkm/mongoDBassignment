@@ -8,7 +8,7 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
   const taskText = document.querySelector("#task-input").value.trim();
   const image = document.querySelector("#image-input").files[0];
-  //   console.log(taskText, image);
+  console.log(taskText, image);
   if (taskText !== "") {
     const formData = new FormData();
     formData.append("taskText", taskText);
@@ -63,6 +63,8 @@ function createTaskElement(taskText, taskImage, id, completed) {
     toggleCompleteTask(id, !completed);
     completed = !completed;
   });
+
+  // todoList.scrollTop = todoList.scrollHeight;
 }
 
 function getExistingTasks() {

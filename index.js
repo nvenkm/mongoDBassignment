@@ -95,7 +95,7 @@ app.put("/task/:id", async (req, res) => {
     const taskId = parseInt(req.params.id); //save the id to variable taskID
     const completed = req.body.completeStatus; //save the sent data to completed varaible
     await Todo.updateOne({ id: taskId }, { completed: completed });
-    const task = await Todo.find();
+    const task = await Todo.find({ taskId });
     res.json({ message: "Task updated successfully.", task }); //return the modified task back
   } catch (error) {
     console.error(e.message);
