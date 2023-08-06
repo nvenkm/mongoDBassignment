@@ -8,7 +8,7 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
   const taskText = document.querySelector("#task-input").value.trim();
   const image = document.querySelector("#image-input").files[0];
-  console.log(taskText, image);
+  // console.log(taskText, image);
   if (taskText !== "") {
     const formData = new FormData();
     formData.append("taskText", taskText);
@@ -22,7 +22,7 @@ form.addEventListener("submit", (e) => {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         createTaskElement(
           data.taskText,
           data.taskImage,
@@ -43,7 +43,7 @@ function createTaskElement(taskText, taskImage, id, completed) {
   newTask.classList.add("todo");
   newTask.innerHTML = `<span class="todo-text">${taskText}</span>
     <div class="buttons-container">
-    <img src="./public/${taskImage}" alt="" />
+    <img src="./public/images/${taskImage}" alt="" />
       <button class="button delete-button">Delete</button>
       <button class="button complete-button">Complete</button>`;
   const todoList = document.querySelector(".todo-list");
@@ -64,7 +64,8 @@ function createTaskElement(taskText, taskImage, id, completed) {
     completed = !completed;
   });
 
-  // todoList.scrollTop = todoList.scrollHeight;
+  todoList.scrollTop = todoList.scrollHeight;
+  // console.log(todoList.scrollTop);
 }
 
 function getExistingTasks() {

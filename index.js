@@ -34,7 +34,7 @@ const Todo = mongoose.model("todo", todoSchema);
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "public/");
+    cb(null, "public/images");
   },
   filename: function (req, file, cb) {
     cb(null, `${Date.now()}_${file.originalname}`);
@@ -82,7 +82,7 @@ app.delete("/task/:id", async (req, res) => {
     const taskId = parseInt(req.params.id); //re.params.id will give us the endpoint and save it to taskId
     const taskToDelete = await Todo.findOne({ id: taskId });
 
-    const imageToDelete = `public/${taskToDelete.taskImage}`;
+    const imageToDelete = `public/images/${taskToDelete.taskImage}`;
     fs.unlink(imageToDelete, (err) => {
       if (err) console.log("ERROR DELETING!", err);
     });
